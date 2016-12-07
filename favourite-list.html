@@ -1,0 +1,23 @@
+<ion-navbar primary *navbar>
+    <button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Favourites</ion-title>
+</ion-navbar>
+
+<ion-content>
+    <ion-list>
+        <ion-item-sliding *ngFor="let favourite of favourites">
+            <button ion-item (click)="itemTapped($event, favourite)">
+                <ion-thumbnail item-left>
+                    <img src="{{favourite.property.thumbnail}}"/>
+                </ion-thumbnail>
+                <h2>{{favourite.hospital.specialization__c}}</h2>
+                <p>{{favourite.hospital.city__c}} </p>
+            </button>
+            <ion-item-options>
+                <button danger (click)="deleteItem($event, favourite)">Delete</button>
+            </ion-item-options>
+        </ion-item-sliding>
+    </ion-list>
+</ion-content>
