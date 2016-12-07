@@ -1,0 +1,18 @@
+<ion-navbar primary *navbar>
+    <button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Hospitals</ion-title>
+</ion-navbar>
+
+<ion-content>
+    <ion-list>
+        <button ion-item *ngFor="let hospital of hospitals" (click)="itemTapped($event, hospital)">
+            <ion-thumbnail item-left>
+                <img src="{{hospital.thumbnail}}"/>
+            </ion-thumbnail>
+            <h2>{{hospital.name}}</h2>
+            <p>{{hospital.city}}</p>
+        </button>
+    </ion-list>
+</ion-content>

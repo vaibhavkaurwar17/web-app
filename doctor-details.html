@@ -1,0 +1,56 @@
+<ion-navbar primary *navbar>
+    <button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Doctor</ion-title>
+</ion-navbar>
+
+<ion-content class="doctor">
+    <div *ngIf="doctor" class="selection">
+        <ion-card>
+            <ion-card-content>
+                <img src="{{doctor.picture}}"/>
+                <h2>{{doctor.name}}</h2>
+                <h3>{{doctor.specialization__c}}</h3>
+            </ion-card-content>
+
+            <ion-list>
+                <a href="tel:{{doctor.mobile__c}}" ion-item>
+                    <ion-icon name="call" item-left></ion-icon>
+                    <p>Call Office</p>
+                    <h2>{{doctor.mobile__c}}</h2>
+                </a>
+				<a href="tel:{{doctor.mobile__c}}" ion-item>
+                    <ion-icon name="call" item-left></ion-icon>
+                    <p>Call Mobile</p>
+                    <h2>{{doctor.mobile__c}}</h2>
+                </a>
+                <a href="mailto:{{doctor.email__c}}" ion-item>
+                    <ion-icon name="mail" item-left></ion-icon>
+                    <p>Email</p>
+                    <h2>{{doctor.email__c}}</h2>
+                </a>
+            </ion-list>
+			<ion-row no-padding>
+                <ion-col>
+                    <button clear small (click)="favourite($event, doctor)">
+                        <ion-icon name="star"></ion-icon>
+                        Favourite
+                    </button>
+                </ion-col>
+                <ion-col text-center>
+                    <button clear small (click)="like($event, doctor)">
+                        <ion-icon name="thumbs-up"></ion-icon>
+                        Like
+                    </button>
+                </ion-col>
+                <ion-col text-right>
+                    <button clear small (click)="share($event, doctor)">
+                        <ion-icon name="share-alt"></ion-icon>
+                        Share
+                    </button>
+                </ion-col>
+            </ion-row>
+        </ion-card>
+    </div>
+</ion-content>

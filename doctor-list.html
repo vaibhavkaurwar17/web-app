@@ -1,0 +1,18 @@
+<ion-navbar primary *navbar>
+    <button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Doctors</ion-title>
+</ion-navbar>
+
+<ion-content>
+    <ion-list>
+        <button ion-item *ngFor="let doctor of doctors" (click)="itemTapped($event, doctor)">
+            <ion-avatar item-left>
+                <img src="{{doctor.picture}}"/>
+            </ion-avatar>
+            <h2>{{doctor.name}}</h2>
+            <p>{{doctor.speciaization__c}}</p>
+        </button>
+    </ion-list>
+</ion-content>

@@ -1,0 +1,34 @@
+<ion-navbar primary *navbar>
+    <button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Hospital</ion-title>
+</ion-navbar>
+
+<ion-content class="hospital">
+    <div *ngIf="hospital" class="selection">
+        <ion-card>
+            <img src="{{hospital.picture}}"/>
+            <ion-card-content>
+                <h2 class="card-title">
+                    {{hospital.specialization__c}}
+                </h2>                
+            </ion-card-content>
+            <ion-list>
+                <ion-item>
+                    <ion-icon item-left name="moon"></ion-icon>
+                    <h3>Features</h3>
+                    <ion-note item-right>{{hospital.features__c}}</ion-note>
+                </ion-item>
+                
+                <button ion-item (click)="showDoctor($event, hospital.doctor)">
+                    <ion-avatar item-left>
+                        <img src="{{hospital.doctor.picture}}"/>
+                    </ion-avatar>
+                    <h2>{{hospital.doctor.name}}</h2>
+                    <p>{{hospital.doctor.specialization__c}}}</p>
+                </button>
+            </ion-list>
+        </ion-card>
+    </div>
+</ion-content>
